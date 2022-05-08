@@ -58,7 +58,7 @@ password_confirm_input = driver.find_element_by_id("input-confirm")
 password_confirm_input.send_keys("youllneverguess")
 
 
-# Verifying Continue button background-color
+# Verifying background-color of Continue button
 
 continue_button = driver.find_element_by_xpath("//input[@value='Continue']")
 background_color = continue_button.value_of_css_property("background-color")
