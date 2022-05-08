@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.support.color import Color
 
+# 5-8-2022    V
+
 driver = webdriver.Firefox(executable_path='drivers/geckodriver')
 driver.get("https://techskillacademy.net/brainbucket/index.php?route=account/login")
 driver.maximize_window()  # maximizing the browser window
