@@ -1,6 +1,6 @@
 import random
 
-random_number = random.randint(0, 2)
+random_number = random.randint(0, 50)
 print("Guess the number between 0 and 50. You will have 7 tries.")
 
 
