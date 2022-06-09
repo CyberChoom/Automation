@@ -4,9 +4,9 @@ class Rectangle:
         self.length = length
         self.width = width
 
-    def area(self, length, width):
-        print(length*width)
+    def area(self):
+        print(self.length * self.width)
 
 
-my_rectangle = Rectangle(0, 0)
-my_rectangle.area(2, 3)
+my_rectangle = Rectangle(2, 3)
+my_rectangle.area()

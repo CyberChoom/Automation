@@ -21,7 +21,7 @@ class Rocket:
         # will decrement y position by 1
 
     def current_position(self):
-        print(f"The current position of the Rocket: x={rocket_ship.x}, y={rocket_ship.y}")
+        print(f"The current position of the Rocket: x={self.x}, y={self.y}")
         # - will print the current position of the Rocket
 
 
