@@ -1,6 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.support.color import Color
 
+# 6-11-2022    V
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 # 5-8-2022    V
 
 driver = webdriver.Firefox(executable_path='drivers/geckodriver')
@@ -10,12 +16,18 @@ driver.maximize_window()  # maximizing the browser window
 login = driver.find_element_by_xpath("//a[contains(text(),'Login')]")
 password_input = driver.find_element_by_xpath("//input[@id='input-password']")
 password_input.send_keys("PassworD")
-login_button = driver.find_element_by_xpath("//input[@value='Login']")
+
+# 6-11-2022    V
+
+lb_wait = WebDriverWait(driver, 10)
+login_button = lb_wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Login']")))
+# login_button = driver.find_element_by_xpath("//input[@value='Login']")
 login_button.click()
 
-new_registrant_button = driver.find_element_by_xpath("//a[contains(text(), 'Continue')]")
+nrb_wait = WebDriverWait(driver, 10)
+new_registrant_button = nrb_wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Continue')]")))
+# new_registrant_button = driver.find_element_by_xpath("//a[contains(text(), 'Continue')]")
 new_registrant_button.click()
-
 
 # Input fields
 
@@ -59,13 +71,16 @@ assert "required" in password_confirm_field_class
 password_confirm_input = driver.find_element_by_id("input-confirm")
 password_confirm_input.send_keys("youllneverguess")
 
-
 # Verifying background-color of Continue button
 
-continue_button = driver.find_element_by_xpath("//input[@value='Continue']")
+# 6-11-2022    V
+
+cb_wait = WebDriverWait(driver, 10)
+continue_button = cb_wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Continue']")))
 background_color = continue_button.value_of_css_property("background-color")
 converted_background_color = Color.from_string(background_color)
 assert converted_background_color.rgb == 'rgb(34, 154, 200)'
 continue_button.click()
 
 
+driver.quit()
