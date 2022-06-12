@@ -29,6 +29,10 @@ new_registrant_button = nrb_wait.until(EC.element_to_be_clickable((By.XPATH, "//
 # new_registrant_button = driver.find_element_by_xpath("//a[contains(text(), 'Continue')]")
 new_registrant_button.click()
 
+ras_wait = WebDriverWait(driver, 10)
+register_account_sign = ras_wait.until(EC.visibility_of_element_located(
+    (By.XPATH, "//h1[contains(.,'Register Account')]")))
+
 # Input fields
 
 firstname_field_class = driver.find_element_by_xpath("//fieldset[@id='account']/div[2]").get_attribute("class")
