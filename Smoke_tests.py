@@ -7,6 +7,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+# 6-12-2022    V
+
+from selenium.webdriver.support.select import Select
+
 # 5-8-2022    V
 
 driver = webdriver.Firefox(executable_path='drivers/geckodriver')
@@ -33,8 +37,9 @@ ras_wait = WebDriverWait(driver, 10)
 register_account_sign = ras_wait.until(EC.visibility_of_element_located(
     (By.XPATH, "//h1[contains(.,'Register Account')]")))
 
-# Input fields
+# 5-8-2022    V
 
+# Input fields
 firstname_field_class = driver.find_element_by_xpath("//fieldset[@id='account']/div[2]").get_attribute("class")
 assert "required" in firstname_field_class
 firstname_input = driver.find_element_by_id("input-firstname")
@@ -75,16 +80,33 @@ assert "required" in password_confirm_field_class
 password_confirm_input = driver.find_element_by_id("input-confirm")
 password_confirm_input.send_keys("youllneverguess")
 
-# Verifying background-color of Continue button
+# 6-12-2022    V
+
+region_dropdown = driver.find_element_by_id("input-zone")
+region_dropdown_select = Select(region_dropdown)
+region_dropdown_select.select_by_visible_text("Alabama")
+
+privacy_checkbox = driver.find_element_by_xpath("//input[@type='checkbox' and @value='1']")
+if not privacy_checkbox.is_selected():
+    privacy_checkbox.click()
+
+subscription = driver.find_element_by_xpath("//input[@type='radio' and @value='0']")
+if not subscription.is_selected():
+    subscription.click()
 
 # 6-11-2022    V
 
 cb_wait = WebDriverWait(driver, 10)
 continue_button = cb_wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Continue']")))
+
+# 5-8-2022    V
+
+# Verifying background-color of Continue button
 background_color = continue_button.value_of_css_property("background-color")
 converted_background_color = Color.from_string(background_color)
 assert converted_background_color.rgb == 'rgb(34, 154, 200)'
 continue_button.click()
 
 
-driver.quit()
+
+# driver.quit()
