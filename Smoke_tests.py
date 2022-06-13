@@ -23,18 +23,16 @@ password_input.send_keys("PassworD")
 
 # 6-11-2022    V
 
-lb_wait = WebDriverWait(driver, 10)
-login_button = lb_wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Login']")))
+wb_wait = WebDriverWait(driver, 10)
+login_button = wb_wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Login']")))
 # login_button = driver.find_element_by_xpath("//input[@value='Login']")
 login_button.click()
 
-nrb_wait = WebDriverWait(driver, 10)
-new_registrant_button = nrb_wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Continue')]")))
+new_registrant_button = wb_wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Continue')]")))
 # new_registrant_button = driver.find_element_by_xpath("//a[contains(text(), 'Continue')]")
 new_registrant_button.click()
 
-ras_wait = WebDriverWait(driver, 10)
-register_account_sign = ras_wait.until(EC.visibility_of_element_located(
+register_account_sign = wb_wait.until(EC.visibility_of_element_located(
     (By.XPATH, "//h1[contains(.,'Register Account')]")))
 
 # 5-8-2022    V
