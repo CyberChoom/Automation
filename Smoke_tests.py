@@ -10,15 +10,28 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import StaleElementReferenceException
 
+# 7-5-2022    V
+from webelements.browser import Browser
+from webelements.UIElement import UIElement as Element
+
+# 7-14-2022
+# Opening the browser and the website to be tested
+browser = Browser("https://cleveronly.com/brainbucket/index.php?route=account/login", "firefox")
+driver = browser.get_driver()
+
 # 5-8-2022    V
 # Opening the browser and the website to be tested
-driver = webdriver.Firefox(executable_path='drivers/geckodriver')
-driver.get("https://techskillacademy.net/brainbucket/index.php?route=account/login")
+#driver = webdriver.Firefox(executable_path='drivers/geckodriver')
+#driver.get("https://techskillacademy.net/brainbucket/index.php?route=account/login")
 driver.maximize_window()  # maximizing the browser window
 
+# 7-14-2022
+password_input = Element(browser, By.XPATH, "//input[@id='input-password']")
+password_input.enter_text("PassworD")
+
 # Inputting password
-password_input = driver.find_element_by_xpath("//input[@id='input-password']")
-password_input.send_keys("PassworD")
+#password_input = driver.find_element_by_xpath("//input[@id='input-password']")
+#password_input.send_keys("PassworD")
 
 # 6-11-2022    V
 # Testing 'Login' and 'Continue' buttons; adding WebDriverWait
@@ -79,6 +92,11 @@ password_confirm_input.send_keys("youllneverguess")
 # 6-12-2022    V
 # Selecting region
 region_dropdown = driver.find_element_by_id("input-zone")
+
+# need for slower internet
+continue_button = wb_wait.until(EC.element_to_be_clickable((By.XPATH, "//select[@id='input-zone']")))
+# need for slower internet
+
 region_dropdown_select = Select(region_dropdown)
 region_dropdown_select.select_by_visible_text("Alabama")
 
@@ -110,7 +128,7 @@ account_btn.click()
 
 login_option = driver.find_element_by_xpath("//*[@class='dropdown-menu dropdown-menu-right']/li[2]")
 login_option.click()
-assert driver.current_url == "https://techskillacademy.net/brainbucket/index.php?route=account/login"
+assert driver.current_url == "https://cleveronly.com/brainbucket/index.php?route=account/login"
 
 account_btn = wb_wait.until(EC.presence_of_element_located((By.XPATH, "//a[@title='My Account']")))
 account_btn.click()
