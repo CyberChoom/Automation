@@ -18,18 +18,13 @@ from webelements.UIElement import UIElement as Element
 # Opening the browser and the website to be tested
 browser = Browser("https://cleveronly.com/brainbucket/index.php?route=account/login", "firefox")
 driver = browser.get_driver()
-
-# 5-8-2022    V
-# Opening the browser and the website to be tested
-#driver = webdriver.Firefox(executable_path='drivers/geckodriver')
-#driver.get("https://techskillacademy.net/brainbucket/index.php?route=account/login")
 driver.maximize_window()  # maximizing the browser window
 
-# 7-14-2022
+# Inputting password
 password_input = Element(browser, By.XPATH, "//input[@id='input-password']")
 password_input.enter_text("PassworD")
 
-# Inputting password
+
 #password_input = driver.find_element_by_xpath("//input[@id='input-password']")
 #password_input.send_keys("PassworD")
 
@@ -135,7 +130,7 @@ account_btn.click()
 
 register_option = driver.find_element_by_xpath("//*[@class='dropdown-menu dropdown-menu-right']/li[1]")
 register_option.click()
-assert driver.current_url == "https://techskillacademy.net/brainbucket/index.php?route=account/register"
+assert driver.current_url == "https://cleveronly.com/brainbucket/index.php?route=account/register"
 
+browser.shutdown()
 
-driver.quit()
