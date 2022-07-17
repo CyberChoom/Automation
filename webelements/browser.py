@@ -9,7 +9,7 @@ class Browser:
     def __init__(self, url, browser_name=""):
         # decide which browser to open, can be extended
         if browser_name.lower() == "firefox":
-            self.driver = webdriver.Firefox(executable_path='drivers/geckodriver')
+            self.driver = webdriver.Firefox(executable_path='../drivers/geckodriver')
         else:
             self.driver = webdriver.Chrome(executable_path='../drivers/chromedriver')
 
