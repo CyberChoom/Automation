@@ -12,7 +12,7 @@ URL = "https://cleveronly.com/brainbucket"
 
 
 def test_registration_through_dropdown():
-    browser = Browser(URL)
+    browser = Browser(URL, "firefox")
     driver = browser.get_driver()
 
     header = Header(browser)
@@ -24,7 +24,7 @@ def test_registration_through_dropdown():
     inputs = {
         'firstname': "Bob",
         'lastname': "Marcus",
-        'email': "bob.marcus@cleveronly.com",
+        'email': "bob.marcus@clevebronly.com",
         'telephone': "1234567890",
         'fax': "1234567890",
         'company': "CleverOnly",
@@ -45,16 +45,16 @@ def test_registration_through_dropdown():
     Dropdown(browser, By.NAME, 'zone_id').select_by_text("Illinois")
 
     # clicking on subscribe YES radio button
-    subscribe_btn = driver.find_element_by_xpath("//input[@name='newsletter' and @value='1']")
+    subscribe_btn = driver.find_element(By.XPATH, "//input[@name='newsletter' and @value='1']")
     if not subscribe_btn.is_selected():
         subscribe_btn.click()
 
-    agree_to_policy = driver.find_element_by_name("agree")
+    agree_to_policy = driver.find_element(By.NAME, "agree")
     if not agree_to_policy.is_selected():
         agree_to_policy.click()
 
     Element(browser, By.XPATH, "//input[@value='Continue']").submit()
-
+    time.sleep(1)
     successful_registration_title = Element(browser, By.XPATH, "//*[@id='content']/h1")
     assert successful_registration_title.get_text() == 'Your Account Has Been Created!'
 
@@ -67,7 +67,7 @@ def test_registration_through_dropdown():
 
 
 def test_registration_from_right_menu():
-    browser = Browser(URL)
+    browser = Browser(URL, "firefox")
     driver = browser.get_driver()
 
     # in Account dropdown select Login option
@@ -84,7 +84,7 @@ def test_registration_from_right_menu():
     inputs = {
         'firstname': "Bob",
         'lastname': "Marcus",
-        'email': "bob.marcus@cleveronly.com",
+        'email': "bob.marcus@clxeveronly.com",
         'telephone': "1234567890",
         'fax': "1234567890",
         'company': "CleverOnly",
@@ -95,7 +95,7 @@ def test_registration_from_right_menu():
     }
 
     for field, text in inputs.items():
-        input_field = driver.find_element_by_name(field)
+        input_field = driver.find_element(By.NAME, field)
         input_field.clear()
         input_field.send_keys(text)
 
@@ -106,14 +106,14 @@ def test_registration_from_right_menu():
     Dropdown(browser, By.NAME, 'zone_id').select_by_text("Illinois")
 
     # clicking on subscribe YES radio button
-    subscribe_btn = driver.find_element_by_xpath("//input[@name='newsletter' and @value='1']")
+    subscribe_btn = driver.find_element(By.XPATH, "//input[@name='newsletter' and @value='1']")
     if not subscribe_btn.is_selected():
         subscribe_btn.click()
 
-    driver.find_element_by_name("agree").click()
+    driver.find_element(By.NAME, "agree").click()
 
     Element(browser, By.XPATH, "//input[@value='Continue']").submit()
-
+    time.sleep(1)
     successful_registration_title = Element(browser, By.XPATH, "//*[@id='content']/h1")
     assert successful_registration_title.get_text() == 'Your Account Has Been Created!'
 
