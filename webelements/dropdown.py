@@ -27,7 +27,13 @@ class Dropdown(Element):
         """
         Select(self.get_element()).select_by_index(index)
 
-# 7-18-2022    V
+# 7-18-2022 V   -   Added deselect methods
+
+        """ 
+        The methods below only work with multi-select dropdowns! 
+        To deselect items in most single-select dropdowns, simply use:
+        .select_by_index(0) 
+        """
 
     def deselect_by_text(self, option):
         """
@@ -36,3 +42,16 @@ class Dropdown(Element):
         """
         Select(self.get_element()).deselect_by_visible_text(option)
 
+    def deselect_by_value(self, value):
+        """
+        Deselects the option in dropdown by value attribute
+        :param value: value attribute
+        """
+        Select(self.get_element()).deselect_by_value(value)
+
+    def deselect_by_index(self, index):
+        """
+        Deselects the option in dropdown by index
+        :param index: index of the option
+        """
+        Select(self.get_element()).deselect_by_index(index)
