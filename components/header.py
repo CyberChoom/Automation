@@ -13,11 +13,13 @@ class Header:
         self.checkout_btn = Element(browser, By.XPATH, "//a[@title='Checkout']")
         self.currency_btn = Element(browser, By.ID, "form-currency")
         self.currency_dropdown = Element(browser, By.XPATH, "//*[@class= 'dropdown-menu']")
-        self.currency_EUR = Element(browser, By.NAME, "//*[@name= 'EUR']")
-        self.currency_GBP = Element(browser, By.NAME, "//*[@name= 'GBP']")
-        self.currency_USD = Element(browser, By.NAME, "//*[@name= 'USD']")
+        self.currency_EUR = Element(browser, By.XPATH, "//*[@name= 'EUR']")
+        self.currency_GBP = Element(browser, By.XPATH, "//*[@name= 'GBP']")
+        self.currency_USD = Element(browser, By.XPATH, "//*[@name= 'USD']")
         self.logo = Element(browser, By.ID, "logo")
-        self.search = Element(browser, By.ID, "search")
+        # self.search = Element(browser, By.ID, "search") - does not work. Used search_field instead
+        self.search_field = Element(browser, By.XPATH, "//*[@class= 'form-control input-lg']")
+        self.search_button = Element(browser, By.XPATH, "//*[@class= 'fa fa-search']")
 
     def verify_logo_is_visible(self):
         return self.logo.wait_until_visible()
@@ -35,9 +37,9 @@ class Header:
     def change_currency(self, new_currency):
         self.currency_btn.click()
         self.currency_dropdown.wait_until_visible()
-        if new_currency == self.currency_EUR:
+        if new_currency.lower() == "eur":
             self.currency_EUR.click()
-        elif new_currency == self.currency_GBP:
+        elif new_currency.lower() == "gbp":
             self.currency_GBP.click()
         else:
             self.currency_USD.click()
@@ -46,4 +48,5 @@ class Header:
         self.wish_list_btn.click()
 
     def search_for(self, text):
-        pass
+        self.search_field.enter_text(text)
+        self.search_button.click()

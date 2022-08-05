@@ -18,13 +18,15 @@ def test_registration_through_dropdown():
     header = Header(browser)
     header.open_registration_form()
 
+    header.change_currency("gbp")
+
     registration_form_title = Element(browser, By.XPATH, "//*[@id='content']/h1")
     assert registration_form_title.get_text() == 'Register Account'
 
     inputs = {
         'firstname': "Bob",
         'lastname': "Marcus",
-        'email': "bob.marcus@clevebronly.com",
+        'email': "bob.marcus@cleveronly.com",
         'telephone': "1234567890",
         'fax': "1234567890",
         'company': "CleverOnly",
@@ -84,7 +86,7 @@ def test_registration_from_right_menu():
     inputs = {
         'firstname': "Bob",
         'lastname': "Marcus",
-        'email': "bob.marcus@clxeveronly.com",
+        'email': "bob.marcus@cleveronly.com",
         'telephone': "1234567890",
         'fax': "1234567890",
         'company': "CleverOnly",
