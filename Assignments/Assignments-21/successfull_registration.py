@@ -7,6 +7,9 @@ from webelements.dropdown import Dropdown
 
 from components.header import Header
 from components.right_menu import RightMenu
+# 8-7-2022    V
+from pages.login_page import LoginPage
+from pages.registration_page import RegistrationPage
 
 URL = "https://cleveronly.com/brainbucket"
 
@@ -20,43 +23,23 @@ def test_registration_through_dropdown():
 
     header.change_currency("gbp")
 
-    registration_form_title = Element(browser, By.XPATH, "//*[@id='content']/h1")
-    assert registration_form_title.get_text() == 'Register Account'
+    registration_form = RegistrationPage(browser)
+    assert registration_form.get_form_title() == 'Register Account'
 
-    inputs = {
-        'firstname': "Bob",
-        'lastname': "Marcus",
-        'email': "bob.marcus@cleveronly.com",
-        'telephone': "1234567890",
-        'fax': "1234567890",
-        'company': "CleverOnly",
-        'address_1': "42 Simpson Avenue",
-        'city': "Chicago",
-        'password': "testPassword",
-        'confirm': "testPassword"
-    }
+    registration_form.enter_first_name("Bob")
+    registration_form.enter_last_name("Marcus")
+    registration_form.enter_email("bob.marcus@cleveronly.com")
+    registration_form.enter_telephone("1234567890")
+    registration_form.enter_first_line_address("42 Simpson Avenue")
+    registration_form.enter_city("Chicago")
+    registration_form.select_state("Illinois")
+    registration_form.enter_password("testPassword")
+    registration_form.confirm_password("testPassword")
+    registration_form.subscribe_to_newsletters()
+    registration_form.agree_to_privacy_policy()
 
-    for field, text in inputs.items():
-        input_field = Element(browser, By.NAME, field)
-        input_field.enter_text(text)
+    registration_form.submit_form()
 
-    # find dropdown element for Country
-    Dropdown(browser, By.ID, 'input-country').select_by_text("United States")
-
-    # find dropdown element for Region
-    Dropdown(browser, By.NAME, 'zone_id').select_by_text("Illinois")
-
-    # clicking on subscribe YES radio button
-    subscribe_btn = driver.find_element(By.XPATH, "//input[@name='newsletter' and @value='1']")
-    if not subscribe_btn.is_selected():
-        subscribe_btn.click()
-
-    agree_to_policy = driver.find_element(By.NAME, "agree")
-    if not agree_to_policy.is_selected():
-        agree_to_policy.click()
-
-    Element(browser, By.XPATH, "//input[@value='Continue']").submit()
-    time.sleep(1)
     successful_registration_title = Element(browser, By.XPATH, "//*[@id='content']/h1")
     assert successful_registration_title.get_text() == 'Your Account Has Been Created!'
 
