@@ -12,6 +12,8 @@ class LoginPage:
         self.email_input = Element(browser, By.NAME, "email")
         self.password_input = Element(browser, By.NAME, "password")
         self.login_button = Element(browser, By.XPATH, "//input[@value='Login']")
+        self.new_customer_title = Element(browser, By.XPATH, "//h2[contains(text(), 'New Customer')]")
+        self.returning_customer_title = Element(browser, By.XPATH, "//h2[contains(text(), 'Returning Customer')]")
 
     def open_registration_from_menu(self):
         self.header.open_login_page()
@@ -32,3 +34,9 @@ class LoginPage:
 
     def press_login(self):
         self.login_button.click()
+
+    def get_new_customer_title(self):
+        return self.new_customer_title.get_text()
+
+    def get_returning_customer_title(self):
+        return self.returning_customer_title.get_text()
