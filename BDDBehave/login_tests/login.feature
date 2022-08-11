@@ -4,7 +4,7 @@ Feature: Login functionality
   Background:
     Given user launch login page
 
-  Scenario: a user can login using correct email and password
+  Scenario: A user can login using correct email and password
     Given user is not logged in
     When user enters email and password
     And user clicks Login button
