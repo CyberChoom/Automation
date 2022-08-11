@@ -1,5 +1,6 @@
 Feature: Registration functionality
 
+
   Background:
     Given User launched the registration page
 
