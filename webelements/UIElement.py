@@ -19,6 +19,9 @@ class UIElement:
         """
         return self.driver.find_element(self._by, self._locator)
 
+    def get_locator(self):
+        return self._locator
+
     def wait_until_visible(self):
         """
         Waits until web element is visible
@@ -51,11 +54,15 @@ class UIElement:
             element = self.get_element()
         return element.get_attribute(attribute)
 
-    def click(self):
+    def click(self, xpath=None):
         """
         Waits until element will be clickable and clicks on it
         """
-        self.wait.until(EC.element_to_be_clickable((self._by, self._locator))).click()
+        if xpath is None:
+            locator = self._locator
+        else:
+            locator = xpath
+        self.wait.until(EC.element_to_be_clickable((self._by, locator))).click()
 
     def enter_text(self, text, wait=False):
         """
@@ -76,3 +83,12 @@ class UIElement:
         Clicks on submit button of the form
         """
         self.wait.until(EC.element_to_be_clickable((self._by, self._locator))).submit()
+
+    def select(self, wait=False):
+        if wait:
+            element = self.wait_until_visible()
+        else:
+            element = self.get_element()
+
+        if not element.is_selected():
+            element.click()

@@ -55,3 +55,6 @@ class Dropdown(Element):
         :param index: index of the option
         """
         Select(self.get_element()).deselect_by_index(index)
+
+    def select_by_option_xpath(self, option_xpath):
+        self.click(self.get_locator() + option_xpath)
