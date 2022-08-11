@@ -34,11 +34,11 @@ class NavigationBar:
 
     def show_pcs(self):
         self.actions.move_to_element(self.desktops)
-        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(), 'PC')]]")
+        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(), 'PC')]")
 
     def show_mac_desktops(self):
         self.actions.move_to_element(self.desktops)
-        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(), 'Mac')]]")
+        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(), 'Mac')]")
 
     def show_all_laptops(self):
         self.actions.move_to_element(self.laptops)
