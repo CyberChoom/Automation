@@ -28,4 +28,5 @@ Feature: Laptops page functionality
 
   Scenario: User can successfully sort items by Name(A-Z)
     When User clicks on "Sort By" dropdown
-    And User clicks on
+    And User chooses "Name(A-Z)" option
+    Then All the items on the page are sorted by name
