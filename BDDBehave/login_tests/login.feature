@@ -1,4 +1,6 @@
 Feature: Login functionality
+
+
   Background:
     Given User launch login page
 

@@ -20,8 +20,7 @@ Feature: Registration functionality
   Scenario Outline: Account Registration
     Given User is not registered
     And User is not logged in
-    When User enters the following information:
-    * His <first_name>
+    When User enters his <first_name>
     * <last_name>
     * <email>
     * <password>
