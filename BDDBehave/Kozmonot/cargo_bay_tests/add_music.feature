@@ -45,3 +45,7 @@ Feature: Adding music to cargo bay
     |Test       |          |Vinyl       |2       |VG -           |NM              |             |5           |
     |Metallica  |Reload    |            |3       |G              |VG +            |3            |4           |
     |Elton John |The Union |8-Track     |        |G +            |VG              |4            |6           |
+
+
+# Might need to replace the blank fields with None or some other value and then write the code that if a specific
+# value is passed, then the field will be left empty
