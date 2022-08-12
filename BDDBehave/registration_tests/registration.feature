@@ -9,8 +9,7 @@ Feature: Registration functionality
     And user is not logged in
     When user enters his first name, last name, email and password
     And user clicks on the 'Register' button
-    Then user account is created
-    And message stating 'Account is successfully registered' is shown
+    Then user account is created, message stating 'Account is successfully registered' is shown
 
   Scenario: User will receive a warning message if tries to register while logged in
     Given user is logged in
@@ -25,8 +24,7 @@ Feature: Registration functionality
     * <email>
     * <password>
     And user clicks on the 'Register' button
-    Then user account is created
-    And message stating 'Account is successfully registered' is shown
+    Then user account is created, message stating 'Account is successfully registered' is shown
 
     Examples:
       |first_name|last_name|email       |password|
