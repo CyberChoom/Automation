@@ -6,7 +6,7 @@ from pages.add_music_page import MusicPage
 
 
 URL = "http://18.212.223.46:3000/"
-configs = ConfigReader("")
+configs = ConfigReader("Automation/BDDBehave/cargo_bay_tests/steps/config.ini")
 
 """ 
     Given user is logged in
@@ -26,17 +26,21 @@ configs = ConfigReader("")
 
 @given("user is logged in")
 def verify_user_logged_in(context):
-    """browser = Browser(URL, "firefox")
-    music_page = MusicPage(browser)
+    browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     context.browser = browser
-    context.music_page = music_page"""
+    music_page = MusicPage(context.browser)
+    context.music_page = music_page
     music_page.click_sign_in_menu()
-    print()
+    music_page.enter_email(configs.get_user1_email())
+    music_page.enter_password(configs.get_user1_password())
+    music_page.sign_in()
+    music_page.verify_username()
 
 
 @given("user launched the 'Add Music Product' page")
 def launch_music_page(context):
-    print()
+    music_page = context.music_page
+    music_page.open_music_page()
 
 
 @when("user enters <artist_name>")

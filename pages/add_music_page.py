@@ -9,6 +9,11 @@ class MusicPage:
         self.password_input = Element(browser, By.NAME, "password")
         self.sign_in_button = Element(browser, By.XPATH, "//button[contains(.,'Sign In')]")
         self.username = Element(browser, By.XPATH, "//span[contains(.,'Kozmonot User ')]")
+        self.cargo_bay = Element(browser, By.XPATH, "//span[contains(.,' Cargo Bay')]")
+        self.add_new_product = Element(browser, By.XPATH, "//button[contains(.,'Add New Product')]")
+        self.media = Element(browser, By.XPATH, "//button[contains(.,'Media')]")
+        self.music = Element(browser, By.XPATH, "//button[contains(.,'Music')]")
+        self.artist_name = Element(browser, By.XPATH, "//input[@name='artistName']")
 
     def click_sign_in_menu(self):
         self.sign_in_menu.click()
@@ -21,3 +26,12 @@ class MusicPage:
 
     def sign_in(self):
         self.sign_in_button.click()
+
+    def verify_username(self):
+        assert self.username.get_text() == "Kozmonot User "
+
+    def open_music_page(self):
+        self.cargo_bay.click()
+        self.add_new_product.click()
+        self.media.click()
+        self.music.click()
