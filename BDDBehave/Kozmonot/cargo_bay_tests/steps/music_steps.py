@@ -6,7 +6,7 @@ from pages.add_music_page import MusicPage
 
 
 URL = "http://18.212.223.46:3000/"
-configs = ConfigReader("Automation/BDDBehave/cargo_bay_tests/steps/config.ini")
+configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/cargo_bay_tests/steps/config.ini")
 
 """ 
     Given user is logged in
