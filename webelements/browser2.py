@@ -10,7 +10,7 @@ class Browser:
         # decide which browser to open, can be extended
         if browser_name.lower() == "firefox":
             options = webdriver.FirefoxOptions()
-            options.add_argument("--width=360")
+            options.add_argument("--width=600")
             options.add_argument("--height=800")
 
             firefox_profile = webdriver.FirefoxProfile()
