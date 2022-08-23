@@ -123,4 +123,4 @@ def add_product(context):
 
 @then('the Music Product is added')
 def result(context):
-    print()
+    print("Success")
