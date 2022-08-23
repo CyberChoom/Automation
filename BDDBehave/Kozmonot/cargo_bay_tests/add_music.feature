@@ -40,11 +40,11 @@ Feature: Adding music to cargo bay
     Then the Music Product is not added, warning message: "This field is required." is shown
 
   Examples:
-    |artist_name|album_name|format      |quantity|media_condition|sleeve_condition|opening_price|asking_price|
-    |           |Awake     |CD          |1       |               |SLD             |1            |3           |
-    |Test       |          |Vinyl       |2       |VG -           |NM              |             |5           |
-    |Metallica  |Reload    |            |3       |G              |VG +            |3            |4           |
-    |Elton John |The Union |8-Track     |        |G +            |VG              |4            |6           |
+    |artist_name|album_name|format |quantity|media_condition|sleeve_condition|opening_price|asking_price|
+    |None       |Awake     |CD     |1       |None           |SLD             |1            |3           |
+    |Test       |None      |Vinyl  |2       |VG -           |NM              |None         |5           |
+    |Metallica  |Reload    |None   |3       |G              |VG +            |3            |4           |
+    |Elton John |The Union |8-Track|None    |G +            |VG              |4            |6           |
 
 
 # Might need to replace the blank fields with None or some other value and then write the code that if a specific
