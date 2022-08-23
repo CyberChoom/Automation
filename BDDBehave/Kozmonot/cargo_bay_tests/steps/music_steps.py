@@ -24,7 +24,7 @@ configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/carg
 """
 
 
-@given("user is logged in")
+@given('user is logged in')
 def verify_user_logged_in(context):
     browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     context.browser = browser
@@ -37,14 +37,14 @@ def verify_user_logged_in(context):
     context.music_page = music_page
 
 
-@given("user launched the 'Add Music Product' page")
+@given('user launched the "Add Music Product" page')
 def launch_music_page(context):
     music_page = context.music_page
     music_page.open_music_page()
 
 
-@when("user enters {artist_name}")
-def artist_name(context):
+@when('user enters {artist_name}')
+def fill_artist_name(context, artist_name):
     music_page = context.music_page
     if artist_name == "None":
         pass
@@ -52,54 +52,54 @@ def artist_name(context):
         music_page.add_artist_name(context, artist_name)
 
 
-@when("{album_name}")
-def album_name(context):
+@when('{album_name}')
+def fill_album_name(context, album_name):
     music_page = context.music_page
     music_page.add_album_name(context, album_name)
 
 
-@when("{format}")
+@when('{format}')
 def music_format(context):
     music_page = context.music_page
     music_page.select_format(context, music_format)
 
 
-@when("{quantity}")
+@when('{quantity}')
 def quantity(context):
     music_page = context.music_page
     music_page.add_quantity(context, quantity)
 
 
-@when("{media_condition}")
+@when('{media_condition}')
 def media_condition(context):
     music_page = context.music_page
     music_page.select_media_condition(context, media_condition)
 
 
-@when("<sleeve_condition>")
+@when('{sleeve_condition}')
 def sleeve_condition(context):
     music_page = context.music_page
     music_page.select_sleeve_condition(context, sleeve_condition)
 
 
-@when("<opening_price>")
+@when('{opening_price}')
 def opening_price(context):
     music_page = context.music_page
     music_page.add_opening_price(context, opening_price)
 
 
-@when("<asking_price>")
+@when('{asking_price}')
 def asking_price(context):
     music_page = context.music_page
     music_page.add_asking_price(context, asking_price)
 
 
-@when("clicks the 'Add Product' button")
+@when('clicks the "Add Product" button')
 def add_product(context):
     music_page = context.music_page
     music_page.add_product(context)
 
 
-@then("the Music Product is added")
+@then('the Music Product is added')
 def result(context):
     print()
