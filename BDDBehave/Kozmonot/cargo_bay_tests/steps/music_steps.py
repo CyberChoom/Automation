@@ -53,43 +53,43 @@ def fill_artist_name(context, artist_name):
 
 
 @when('{album_name}')
-def fill_album_name(context, album_name):
+def enter_album_name(context, album_name):
     music_page = context.music_page
     music_page.add_album_name(context, album_name)
 
 
 @when('{format}')
-def music_format(context):
+def enter_music_format(context, format):
     music_page = context.music_page
-    music_page.select_format(context, music_format)
+    music_page.select_format(context, format)
 
 
 @when('{quantity}')
-def quantity(context):
+def enter_music_quantity(context, quantity):
     music_page = context.music_page
     music_page.add_quantity(context, quantity)
 
 
 @when('{media_condition}')
-def media_condition(context):
+def enter_media_condition(context, media_condition):
     music_page = context.music_page
     music_page.select_media_condition(context, media_condition)
 
 
 @when('{sleeve_condition}')
-def sleeve_condition(context):
+def enter_sleeve_condition(context, sleeve_condition):
     music_page = context.music_page
     music_page.select_sleeve_condition(context, sleeve_condition)
 
 
 @when('{opening_price}')
-def opening_price(context):
+def enter_opening_price(context, opening_price):
     music_page = context.music_page
     music_page.add_opening_price(context, opening_price)
 
 
 @when('{asking_price}')
-def asking_price(context):
+def enter_asking_price(context, asking_price):
     music_page = context.music_page
     music_page.add_asking_price(context, asking_price)
 
