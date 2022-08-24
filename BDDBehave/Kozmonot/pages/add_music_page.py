@@ -59,7 +59,7 @@ class MusicPage:
     def add_product(self):
         self.add_product_button.click()
 
-    def add_product_success(self):
+    def verify_add_product(self):
         assert self.success_message.get_attribute('class') == 'success-message'
 
     def verify_error(self):

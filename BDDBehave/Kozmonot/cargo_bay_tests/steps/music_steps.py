@@ -124,7 +124,7 @@ def add_product(context):
 @then('the Music Product is added')
 def success(context):
     music_page = context.music_page
-    music_page.add_product_success()
+    music_page.verify_add_product()
 
 
 @then('the Music Product is not added, warning message: "This field is required." is shown under empty fields')
