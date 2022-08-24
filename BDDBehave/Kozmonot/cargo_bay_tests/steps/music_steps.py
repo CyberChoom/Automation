@@ -118,7 +118,7 @@ def enter_asking_price(context, asking_price):
 def add_product(context):
     music_page = context.music_page
     music_page.add_product()
-    time.sleep(2)
+    time.sleep(6)
 
 
 @then('the Music Product is added')
@@ -127,7 +127,7 @@ def success(context):
     music_page.verify_add_product()
 
 
-@then('the Music Product is not added, warning message: "This field is required." is shown under empty fields')
+@then('the Music Product is not added, warning message: "This field is required." is shown underneath the empty fields')
 def warning(context):
     music_page = context.music_page
     music_page.verify_error()
