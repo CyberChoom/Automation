@@ -59,7 +59,5 @@ class MusicPage:
     def add_product(self):
         self.add_product_button.click()
 
-    #def add_product_success(self):
-    #    assert self.popup.get_element() == False
     def add_product_success(self):
-        assert self.success_message.get_text() == 'New music product was created..'
+        assert self.success_message.get_attribute('class') == 'success-message'

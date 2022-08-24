@@ -1,10 +1,7 @@
 from behave import given, when, then
-
 from BDDBehave.utils.config_reader import ConfigReader
-from BDDBehave.webelements.browser import Browser
 from BDDBehave.Kozmonot.pages.login_page import LoginPage
 from BDDBehave.Kozmonot.pages.add_music_page import MusicPage
-from BDDBehave.webelements.actions import Actions
 import time
 
 
@@ -29,8 +26,6 @@ configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/carg
 
 @given('user is logged in')
 def verify_user_logged_in(context):
-    #browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
-    #context.browser = browser
     login_page = LoginPage(context.browser)
     login_page.click_sign_in_menu()
     login_page.enter_email(configs.get_user1_email())
@@ -54,7 +49,6 @@ def fill_artist_name(context, artist_name):
         pass
     else:
         music_page.add_artist_name(artist_name)
-    time.sleep(1)
 
 
 @when('"{album_name}" in album name field')
@@ -64,7 +58,6 @@ def enter_album_name(context, album_name):
         pass
     else:
         music_page.add_album_name(album_name)
-    time.sleep(1)
 
 
 @when('"{format}" in format field')
@@ -125,11 +118,10 @@ def enter_asking_price(context, asking_price):
 def add_product(context):
     music_page = context.music_page
     music_page.add_product()
-    time.sleep(3)
+    time.sleep(2)
 
 
 @then('the Music Product is added')
 def success(context):
     music_page = context.music_page
     music_page.add_product_success()
-    time.sleep(1)
