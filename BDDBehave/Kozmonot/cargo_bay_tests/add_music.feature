@@ -28,14 +28,14 @@ Feature: Adding music to cargo bay
   # Negative Scenario
 
   Scenario Outline: User is not able to add a Music Product if any of the required fields is not filled out
-    When user enters <artist_name>
-    * <album_name>
-    * <format>
-    * <quantity>
-    * <media_condition>
-    * <sleeve_condition>
-    * <opening_price>
-    * <asking_price>
+    When user enters "<artist_name>" in artist name field
+    And "<album_name>" in album name field
+    And "<format>" in format field
+    And "<quantity>" in quantity field
+    And "<media_condition>" in media condition field
+    And "<sleeve_condition>" in sleeve condition field
+    And "<opening_price>" in opening price field
+    And "<asking_price>" in asking price field
     And clicks the "Add Product" button
     Then the Music Product is not added, warning message: "This field is required." is shown
 
