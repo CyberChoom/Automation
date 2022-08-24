@@ -5,7 +5,7 @@ Feature: Adding music to cargo bay
     Given user is logged in
     And user launched the "Add Music Product" page
 
-
+  @positive
   Scenario Outline: User can add a Music Product with filling in only required fields
     When user enters "<artist_name>" in artist name field
     And "<album_name>" in album name field
@@ -25,8 +25,7 @@ Feature: Adding music to cargo bay
     |Metallica  |Reload    |Casette|3       |G              |VG +            |3            |4           |
     |Elton John |The Union |8-Track|5       |G +            |VG              |4            |6           |
 
-  # Negative Scenario
-
+  @negative
   Scenario Outline: User is not able to add a Music Product if any of the required fields is not filled out
     When user enters "<artist_name>" in artist name field
     And "<album_name>" in album name field
