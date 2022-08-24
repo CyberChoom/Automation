@@ -1,4 +1,4 @@
-from webelements.UIElement import UIElement as Element
+from BDDBehave.webelements.UIElement import UIElement as Element
 from selenium.webdriver.support.select import Select
 
 
