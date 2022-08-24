@@ -24,3 +24,6 @@ class ConfigReader:
 
     def get_user1_password(self):
         return self.reader.get_user1_password()
+
+    def get_url(self):
+        return self.reader.get_url()

@@ -1,4 +1,4 @@
-from utils.config_reader import ConfigReader
+from BDDBehave.utils.config_reader import ConfigReader
 from BDDBehave.webelements.browser import Browser
 
 

@@ -8,7 +8,7 @@ class LoginPage:
         self.email_input = Element(browser, By.NAME, "username")
         self.password_input = Element(browser, By.NAME, "password")
         self.sign_in_button = Element(browser, By.XPATH, "//button[contains(.,'Sign In')]")
-        self.username = Element(browser, By.XPATH, "//span[contains(.,'Kozmonot User ')]")
+        self.username = Element(browser, By.XPATH, "//span[contains(.,'Kozmonot User')]")
 
     def click_sign_in_menu(self):
         self.sign_in_menu.click()
@@ -23,4 +23,4 @@ class LoginPage:
         self.sign_in_button.click()
 
     def verify_username(self):
-        assert self.username.get_text() == "Kozmonot User "
+        assert self.username.get_text() == "Kozmonot User"

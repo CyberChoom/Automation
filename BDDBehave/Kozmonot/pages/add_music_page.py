@@ -1,23 +1,30 @@
 from BDDBehave.webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
 from BDDBehave.webelements.dropdown import Dropdown
+import time
+from BDDBehave.webelements.actions import Actions
 
 
 class MusicPage:
     def __init__(self, browser):
-        self.cargo_bay = Element(browser, By.XPATH, "//span[contains(.,' Cargo Bay')]")
+        self.time = time
+        self.actions = Actions(browser)
+        self.cargo_bay = Element(browser, By.XPATH, "//span[contains(.,'Cargo Bay')]")
         self.add_new_product = Element(browser, By.XPATH, "//button[contains(.,'Add New Product')]")
         self.media = Element(browser, By.XPATH, "//button[contains(.,'Media')]")
         self.music = Element(browser, By.XPATH, "//button[contains(.,'Music')]")
         self.artist_name = Element(browser, By.XPATH, "//input[@name='artistName']")
         self.album_name = Element(browser, By.XPATH, "//input[@name='albumName']")
-        self.music_format = Dropdown(browser, By.XPATH, "//select[@name='productFormat']")
+        self.music_format = Dropdown(browser, By.NAME, "productFormat")
         self.quantity = Element(browser, By.XPATH, "//input[@name='quantity']")
-        self.media_condition = Dropdown(browser, By.XPATH, "//select[@name='condition']")
-        self.sleeve_condition = Dropdown(browser, By.XPATH, "//select[@name='sleeveCondition']")
+        self.media_condition = Dropdown(browser, By.NAME, "condition")
+        self.sleeve_condition = Dropdown(browser, By.NAME, "sleeveCondition")
         self.opening_price = Element(browser, By.XPATH, "//input[@name='openingPrice']")
         self.asking_price = Element(browser, By.XPATH, "//input[@name='askingPrice']")
-        self.add_product = Element(browser, By.XPATH, "//button[contains(.,'Add Product')]")
+        self.add_product_button = Element(browser, By.XPATH, "//button[contains(.,'Add Product')]")
+        self.success_message = Element(browser, By.CLASS_NAME, "success-message")
+        self.number_of_all_products = Element(browser, By.XPATH, "//div[4]/div/ul/li/a/span")
+        #self.popup = Element(browser, By.CLASS_NAME, "modal-body")
 
     def open_music_page(self):
         self.cargo_bay.click()
@@ -50,4 +57,9 @@ class MusicPage:
         self.asking_price.enter_text(ask_price)
 
     def add_product(self):
-        self.add_product.click()
+        self.add_product_button.click()
+
+    #def add_product_success(self):
+    #    assert self.popup.get_element() == False
+    def add_product_success(self):
+        assert self.success_message.get_text() == 'New music product was created..'

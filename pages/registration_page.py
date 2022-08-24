@@ -24,15 +24,11 @@ class RegistrationPage:
         self.postcode_input = Element(browser, By.NAME, "postcode")
         self.password_input = Element(browser, By.NAME, "password")
         self.confirm_password_input = Element(browser, By.NAME, "confirm")
-
         self.country_dropdown = Dropdown(browser, By.ID, 'input-country')
         self.region_dropdown = Dropdown(browser, By.NAME, 'zone_id')
-
         self.subscribe_btn = Radiobutton(browser, By.XPATH, "//input[@name='newsletter' and @value='1']")
         self.unsubscribe_btn = Radiobutton(browser, By.XPATH, "//input[@name='newsletter' and @value='0']")
-
         self.privacy_policy_checkbox = Checkbox(browser, By.NAME, "agree")
-
         self.continue_btn = Element(browser, By.XPATH, "//input[@value='Continue']")
 
     def get_form_title(self):

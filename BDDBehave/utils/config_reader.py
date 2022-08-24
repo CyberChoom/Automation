@@ -1,5 +1,5 @@
-from utils.json_file_reader import JsonFileReader
-from utils.ini_file_reader import IniFileReader
+from BDDBehave.utils.json_file_reader import JsonFileReader
+from BDDBehave.utils.ini_file_reader import IniFileReader
 
 
 class ConfigReader:
@@ -24,3 +24,6 @@ class ConfigReader:
 
     def get_user1_password(self):
         return self.reader.get_user1_password()
+
+    def get_url(self):
+        return self.reader.get_url()

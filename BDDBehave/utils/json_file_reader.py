@@ -27,3 +27,8 @@ class JsonFileReader:
         if 'password' not in self.data.keys():
             raise Exception("password option is not found in user1 section")
         return self.data['password']
+
+    def get_url(self):
+        if 'url' not in self.data.keys():
+            raise Exception("URL option is not present in the config file")
+        return self.data['url']

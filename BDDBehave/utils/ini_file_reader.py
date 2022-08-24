@@ -32,3 +32,9 @@ class IniFileReader:
         if value is None:
             raise Exception("password option is not found in user1 section")
         return value
+
+    def get_url(self):
+        value = self.data.get('environment', 'url', fallback=None)
+        if value is None:
+            raise Exception("URL option is not found in environment section")
+        return value
