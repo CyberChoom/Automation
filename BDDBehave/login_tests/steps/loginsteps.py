@@ -1,7 +1,7 @@
 from behave import given, when, then
 
-from utils.config_reader import ConfigReader
-from webelements.browser import Browser
+from BDDBehave.utils.config_reader import ConfigReader
+from BDDBehave.webelements.browser import Browser
 from pages.login_page import LoginPage
 from pages.profile_page import ProfilePage
 

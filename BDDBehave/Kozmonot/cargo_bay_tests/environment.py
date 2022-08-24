@@ -1,5 +1,5 @@
 from utils.config_reader import ConfigReader
-from webelements.browser2 import Browser
+from BDDBehave.webelements.browser import Browser
 
 
 def before_all(context):
