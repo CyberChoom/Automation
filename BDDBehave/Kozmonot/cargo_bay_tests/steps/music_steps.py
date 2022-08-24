@@ -1,8 +1,9 @@
 from behave import given, when, then
 
-from utils.config_reader import ConfigReader
-from webelements.browser2 import Browser
-from pages.add_music_page import MusicPage
+from BDDBehave.utils.config_reader import ConfigReader
+from BDDBehave.webelements.browser import Browser
+from BDDBehave.Kozmonot.pages.login_page import LoginPage
+from BDDBehave.Kozmonot.pages.add_music_page import MusicPage
 
 
 URL = "http://18.212.223.46:3000/"
@@ -28,19 +29,20 @@ configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/carg
 def verify_user_logged_in(context):
     browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     context.browser = browser
-    music_page = MusicPage(context.browser)
-    music_page.click_sign_in_menu()
-    music_page.enter_email(configs.get_user1_email())
-    music_page.enter_password(configs.get_user1_password())
-    music_page.sign_in()
-    music_page.verify_username()
-    context.music_page = music_page
+    login_page = LoginPage(context.browser)
+    login_page.click_sign_in_menu()
+    login_page.enter_email(configs.get_user1_email())
+    login_page.enter_password(configs.get_user1_password())
+    login_page.sign_in()
+    login_page.verify_username()
+    context.login_page = login_page
 
 
 @given('user launched the "Add Music Product" page')
 def launch_music_page(context):
-    music_page = context.music_page
+    music_page = MusicPage(context.browser)
     music_page.open_music_page()
+    context.music_page = music_page
 
 
 @when('user enters "{artist_name}"')
@@ -52,7 +54,7 @@ def fill_artist_name(context, artist_name):
         music_page.add_artist_name(context, artist_name)
 
 
-@when('"{album_name}"')
+@when('user enters g "{album_name}" in album_name field')
 def enter_album_name(context, album_name):
     music_page = context.music_page
     if album_name == "None":
@@ -61,7 +63,7 @@ def enter_album_name(context, album_name):
         music_page.add_artist_name(context, album_name)
 
 
-@when('"{format}"')
+@when('"{format}" in format field')
 def enter_music_format(context, format):
     music_page = context.music_page
     if format == "None":
@@ -70,7 +72,7 @@ def enter_music_format(context, format):
         music_page.select_format(context, format)
 
 
-@when('"{quantity}"')
+@when('"{quantity}" in quantity field')
 def enter_music_quantity(context, quantity):
     music_page = context.music_page
     if quantity == "None":
@@ -79,7 +81,7 @@ def enter_music_quantity(context, quantity):
         music_page.add_quantity(context, quantity)
 
 
-@when('"{media_condition}"')
+@when('"{media_condition}" in media_condition field')
 def enter_media_condition(context, media_condition):
     music_page = context.music_page
     if media_condition == "None":
@@ -88,7 +90,7 @@ def enter_media_condition(context, media_condition):
         music_page.select_media_condition(context, media_condition)
 
 
-@when('"{sleeve_condition}"')
+@when('"{sleeve_condition}" in sleeve_condition field')
 def enter_sleeve_condition(context, sleeve_condition):
     music_page = context.music_page
     if sleeve_condition == "None":
@@ -97,7 +99,7 @@ def enter_sleeve_condition(context, sleeve_condition):
         music_page.select_sleeve_condition(context, sleeve_condition)
 
 
-@when('"{opening_price}"')
+@when('"{opening_price}" in opening_price field')
 def enter_opening_price(context, opening_price):
     music_page = context.music_page
     if opening_price == "None":
@@ -106,7 +108,7 @@ def enter_opening_price(context, opening_price):
         music_page.add_opening_price(context, opening_price)
 
 
-@when('"{asking_price}"')
+@when('"{asking_price}" in asking_price field')
 def enter_asking_price(context, asking_price):
     music_page = context.music_page
     if asking_price == "None":

@@ -8,13 +8,13 @@ Feature: Adding music to cargo bay
 
   Scenario Outline: User can add a Music Product with filling in only required fields
     When user enters <artist_name>
-    * <album_name>
-    * <format>
-    * <quantity>
-    * <media_condition>
-    * <sleeve_condition>
-    * <opening_price>
-    * <asking_price>
+    * <album_name> in album_name field
+    * <format> in format field
+    * <quantity> in quantity field
+    * <media_condition> in media_condition field
+    * <sleeve_condition> in sleeve_condition field
+    * <opening_price> in opening_price field
+    * <asking_price> in asking_price field
     And clicks the 'Add Product' button
     Then the Music Product is added
 
