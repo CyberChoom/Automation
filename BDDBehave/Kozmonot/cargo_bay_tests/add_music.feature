@@ -36,7 +36,7 @@ Feature: Adding music to cargo bay
     And "<opening_price>" in opening price field
     And "<asking_price>" in asking price field
     And clicks the "Add Product" button
-    Then the Music Product is not added, warning message: "This field is required." is shown
+    Then the Music Product is not added, warning message: "This field is required." is shown underneath the empty fields
 
   Examples:
     |artist_name|album_name|format |quantity|media_condition|sleeve_condition|opening_price|asking_price|

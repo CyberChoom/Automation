@@ -125,3 +125,9 @@ def add_product(context):
 def success(context):
     music_page = context.music_page
     music_page.add_product_success()
+
+
+@then('the Music Product is not added, warning message: "This field is required." is shown under empty fields')
+def warning(context):
+    music_page = context.music_page
+    music_page.verify_error()

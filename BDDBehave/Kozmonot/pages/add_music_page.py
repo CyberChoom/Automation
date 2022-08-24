@@ -24,6 +24,7 @@ class MusicPage:
         self.add_product_button = Element(browser, By.XPATH, "//button[contains(.,'Add Product')]")
         self.success_message = Element(browser, By.CLASS_NAME, "success-message")
         self.number_of_all_products = Element(browser, By.XPATH, "//div[4]/div/ul/li/a/span")
+        self.error = Element(browser, By.XPATH, "//span[contains(.,'This field is required.')]")
         #self.popup = Element(browser, By.CLASS_NAME, "modal-body")
 
     def open_music_page(self):
@@ -61,3 +62,6 @@ class MusicPage:
 
     def add_product_success(self):
         assert self.success_message.get_attribute('class') == 'success-message'
+
+    def verify_error(self):
+        assert self.error.get_attribute('form-error-message') == 'This field is required.'
