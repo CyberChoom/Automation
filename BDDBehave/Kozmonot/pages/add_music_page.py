@@ -25,7 +25,6 @@ class MusicPage:
         self.success_message = Element(browser, By.CLASS_NAME, "success-message")
         self.number_of_all_products = Element(browser, By.XPATH, "//div[4]/div/ul/li/a/span")
         self.error = Element(browser, By.XPATH, "//span[contains(.,'This field is required.')]")
-        #self.popup = Element(browser, By.CLASS_NAME, "modal-body")
 
     def open_music_page(self):
         self.cargo_bay.click()
