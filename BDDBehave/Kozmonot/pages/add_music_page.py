@@ -63,5 +63,5 @@ class MusicPage:
         assert self.success_message_popup.get_attribute('class') == 'success-message'
 
     def verify_error(self):
-        self.error.wait_until_present()
+        self.error.wait_until_visible()
         assert self.error.get_text() == 'This field is required.'
