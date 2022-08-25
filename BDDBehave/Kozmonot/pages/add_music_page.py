@@ -2,13 +2,11 @@ from BDDBehave.webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
 from BDDBehave.webelements.dropdown import Dropdown
 import time
-from BDDBehave.webelements.actions import Actions
 
 
 class MusicPage:
     def __init__(self, browser):
         self.time = time
-        self.actions = Actions(browser)
         self.cargo_bay = Element(browser, By.XPATH, "//span[contains(.,'Cargo Bay')]")
         self.add_new_product = Element(browser, By.XPATH, "//button[contains(.,'Add New Product')]")
         self.media = Element(browser, By.XPATH, "//button[contains(.,'Media')]")
