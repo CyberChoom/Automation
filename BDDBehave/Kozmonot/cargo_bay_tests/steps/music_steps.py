@@ -2,7 +2,6 @@ from behave import given, when, then
 from BDDBehave.utils.config_reader import ConfigReader
 from BDDBehave.Kozmonot.pages.login_page import LoginPage
 from BDDBehave.Kozmonot.pages.add_music_page import MusicPage
-import time
 
 
 configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/cargo_bay_tests/steps/config.ini")
