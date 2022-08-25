@@ -22,7 +22,8 @@ class MusicPage:
         self.opening_price = Element(browser, By.XPATH, "//input[@name='openingPrice']")
         self.asking_price = Element(browser, By.XPATH, "//input[@name='askingPrice']")
         self.add_product_button = Element(browser, By.XPATH, "//button[contains(.,'Add Product')]")
-        self.success_message = Element(browser, By.CLASS_NAME, "success-message")
+        self.success_message = Element(browser, By.XPATH, "//div[contains(.,'New music product was created..')]")
+        self.success_message_popup = Element(browser, By.CLASS_NAME, "success-message")
         self.number_of_all_products = Element(browser, By.XPATH, "//div[4]/div/ul/li/a/span")
         self.error = Element(browser, By.XPATH, "//span[contains(.,'This field is required.')]")
 
@@ -59,8 +60,10 @@ class MusicPage:
     def add_product(self):
         self.add_product_button.click()
 
-    def verify_add_product(self):
-        assert self.success_message.get_attribute('class') == 'success-message'
+    def verify_adding_product(self):
+        self.success_message.wait_until_visible()
+        assert self.success_message_popup.get_attribute('class') == 'success-message'
 
     def verify_error(self):
-        assert self.error.get_attribute('form-error-message') == 'This field is required.'
+        self.error.wait_until_present()
+        assert self.error.get_text() == 'This field is required.'

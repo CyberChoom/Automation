@@ -92,3 +92,9 @@ class UIElement:
 
         if not element.is_selected():
             element.click()
+
+    def wait_until_clickable(self):
+        self.wait.until(EC.element_to_be_clickable((self._by, self._locator)))
+
+    def wait_until_present(self):
+        self.wait.until(EC.presence_of_element_located((self._by, self._locator)))

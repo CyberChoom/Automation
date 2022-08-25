@@ -118,13 +118,12 @@ def enter_asking_price(context, asking_price):
 def add_product(context):
     music_page = context.music_page
     music_page.add_product()
-    time.sleep(6)
 
 
 @then('the Music Product is added')
 def success(context):
     music_page = context.music_page
-    music_page.verify_add_product()
+    music_page.verify_adding_product()
 
 
 @then('the Music Product is not added, warning message: "This field is required." is shown underneath the empty fields')
