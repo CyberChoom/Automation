@@ -8,7 +8,8 @@ class LoginPage:
         self.email_input = Element(browser, By.NAME, "username")
         self.password_input = Element(browser, By.NAME, "password")
         self.sign_in_button = Element(browser, By.XPATH, "//button[contains(.,'Sign In')]")
-        self.username = Element(browser, By.XPATH, "//span[contains(.,'Kozmonot User')]")
+        self.success_login_message = Element(browser, By.XPATH, "//div[contains(.,'You are now logged in..')]")
+        self.success_login_popup = Element(browser, By.CLASS_NAME, "success-message")
 
     def click_sign_in_menu(self):
         self.sign_in_menu.click()
@@ -22,5 +23,6 @@ class LoginPage:
     def sign_in(self):
         self.sign_in_button.click()
 
-    def verify_username(self):
-        assert self.username.get_text() == "Kozmonot User"
+    def verify_login(self):
+        self.success_login_message.wait_until_visible()
+        assert self.success_login_popup.get_attribute('class') == 'success-message'

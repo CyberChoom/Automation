@@ -30,7 +30,7 @@ def verify_user_logged_in(context):
     login_page.enter_email(configs.get_user1_email())
     login_page.enter_password(configs.get_user1_password())
     login_page.sign_in()
-    login_page.verify_username()
+    login_page.verify_login()
     context.login_page = login_page
 
 
