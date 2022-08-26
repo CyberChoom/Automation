@@ -26,7 +26,7 @@ Feature: Adding music to cargo bay
     |Elton John |The Union |8-Track|5       |G +            |VG              |4            |6           |
 
   @negative
-  Scenario Outline: User is not able to add a Music Product if any of the required fields is not filled out
+  Scenario Outline: User is not able to add a Music Product if any of the required fields are not filled out
     When user enters "<artist_name>" in artist name field
     And "<album_name>" in album name field
     And "<format>" in format field
