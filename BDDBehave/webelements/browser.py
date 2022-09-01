@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+import os
 
 
 class Browser:
@@ -19,7 +20,7 @@ class Browser:
             self.driver = webdriver.Firefox(firefox_profile=firefox_profile,
                                             executable_path='C:/Users/user/Desktop/Automation/drivers/geckodriver')
             self.driver.maximize_window()
-        else:
+        elif browser_name.lower() == "chrome":
             options = webdriver.ChromeOptions()
             # options.add_argument("--start-maximized")
             # options.add_argument("--window-size=360,800")
@@ -27,6 +28,22 @@ class Browser:
             options.add_argument("--disable-popup-blocking")
             options.add_experimental_option("excludeSwitches", ['enable-automation'])
             self.driver = webdriver.Chrome(executable_path=r'../drivers/chromedriver', options=options)
+        elif browser_name.lower() == 'remote':
+            username = "trialtester_CeBjai"
+            accessKey = "ujmiGphDZxYoWxpxfygL"
+            desired_cap = {
+                'bstack:options': {
+                    "os": "Windows",
+                    "osVersion": "10"
+                },
+                "browserName": "Chrome",
+                "browserVersion": "latest",
+                'name': 'Add Music',
+                'build': 'alpha_1'
+            }
+            self.driver = webdriver.Remote(
+                command_executor='https://' + username + ':' + accessKey + '@hub-cloud.browserstack.com/wd/hub',
+                desired_capabilities=desired_cap)
 
         self.driver.get(url)
         self.wait = WebDriverWait(self.driver, 10)
