@@ -19,6 +19,9 @@ class HomePage:
     def show_all_laptops(self):
         self.navbar.show_all_laptops()
 
+    def show_mac_laptops(self):
+        self.navbar.show_mac_laptops()
+
     def show_windows_laptops(self):
         self.navbar.show_windows_laptops()
 
@@ -30,3 +33,19 @@ class HomePage:
 
     def show_monitors(self):
         self.navbar.show_monitors()
+
+    def show_printers(self):
+        self.navbar.show_printers()
+
+    def show_scanners(self):
+        self.navbar.show_scanners()
+
+    def show_web_cameras(self):
+        self.navbar.show_web_cameras()
+
+    def show_pdas(self):
+        self.navbar.show_pdas()
+
+    def show_phones(self):
+        self.navbar.show_phones()
+
