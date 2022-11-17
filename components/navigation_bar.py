@@ -63,3 +63,25 @@ class NavigationBar:
     def show_monitors(self):
         self.actions.move_to_element(self.components)
         self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'Monitors')]")
+
+    def show_printers(self):
+        self.actions.move_to_element(self.components)
+        self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'Printers')]")
+
+    def show_scanners(self):
+        self.actions.move_to_element(self.components)
+        self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'Scanners']")
+
+    def show_web_cameras(self):
+        self.actions.move_to_element(self.components)
+        self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'Web Cameras']")
+
+    def show_pdas(self):
+        self.actions.move_to_element(self.components)
+        self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'PDAs']")
+
+    def show_phones(self):
+        self.actions.move_to_element(self.components)
+        self.components_dropdown.select_by_option_xpath("//a[contains(text(), 'Phones']")
+
+
