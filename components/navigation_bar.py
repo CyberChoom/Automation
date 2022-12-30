@@ -40,6 +40,9 @@ class NavigationBar:
         self.actions.move_to_element(self.desktops)
         self.desktops_dropdown.select_by_option_xpath("//a[contains(text(), 'Mac')]")
 
+    def show_mac_desktops_dropdown(self):
+        self.actions.move_to_element(self.desktops)
+
     def show_all_laptops(self):
         self.actions.move_to_element(self.laptops)
         self.laptops_dropdown.select_by_option_xpath("//a[@class='see-all']")

@@ -29,6 +29,12 @@ class UIElement:
         """
         return self.wait.until(EC.visibility_of_element_located((self._by, self._locator)))
 
+    def wait_until_clickable(self):
+        return self.wait.until(EC.element_to_be_clickable((self._by, self._locator)))
+
+    def wait_until_present(self):
+        return self.wait.until(EC.presence_of_element_located((self._by, self._locator)))
+
     def get_text(self, wait=True):
         """
         Gets the text of the web element
@@ -37,6 +43,14 @@ class UIElement:
         """
         if wait:
             element = self.wait_until_visible()
+        else:
+            element = self.get_element()
+        return element.text
+
+    def get_text_present(self, wait=True):
+
+        if wait:
+            element = self.wait_until_present()
         else:
             element = self.get_element()
         return element.text
@@ -92,9 +106,3 @@ class UIElement:
 
         if not element.is_selected():
             element.click()
-
-    def wait_until_clickable(self):
-        self.wait.until(EC.element_to_be_clickable((self._by, self._locator)))
-
-    def wait_until_present(self):
-        self.wait.until(EC.presence_of_element_located((self._by, self._locator)))

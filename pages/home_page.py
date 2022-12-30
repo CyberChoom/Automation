@@ -16,6 +16,9 @@ class HomePage:
     def show_mac_desktops(self):
         self.navbar.show_mac_desktops()
 
+    def show_mac_desktops_dropdown(self):
+        self.navbar.show_mac_desktops_dropdown()
+
     def show_all_laptops(self):
         self.navbar.show_all_laptops()
 
