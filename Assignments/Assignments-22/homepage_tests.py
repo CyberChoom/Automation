@@ -2,7 +2,6 @@ from pages.home_page import HomePage
 from webelements.browser import Browser
 from webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
-from selenium import webdriver
 
 URL = "https://cleveronly.com/brainbucket"
 
