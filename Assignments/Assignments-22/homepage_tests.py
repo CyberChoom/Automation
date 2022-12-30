@@ -58,4 +58,3 @@ if __name__ == "__main__":
     test_opening_pcs()
     test_opening_macs()
     test_opening_all_desktops()
-
