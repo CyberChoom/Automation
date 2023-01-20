@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import *
 
 
 class Browser:
@@ -8,10 +9,14 @@ class Browser:
     """
     def __init__(self, url, browser_name=""):
         # decide which browser to open, can be extended
-        if browser_name.lower() == "firefox":
-            self.driver = webdriver.Firefox(executable_path='C:/Users/user/Desktop/Automation/drivers/geckodriver')
-        else:
-            self.driver = webdriver.Chrome(executable_path='../drivers/chromedriver')
+        try:
+            if browser_name.lower() == "firefox":
+                self.driver = webdriver.Firefox(executable_path='C:/Users/user/Desktop/Automation/drivers/geckodriver')
+            else:
+                self.driver = webdriver.Chrome(executable_path='../drivers/chromedriver')
+        except WebDriverException:
+            print("The executable path to the driver is incorrect.")
+            raise
 
         self.driver.get(url)
         self.wait = WebDriverWait(self.driver, 10)
