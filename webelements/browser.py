@@ -7,9 +7,8 @@ class Browser:
     """
     This class is wrapper around Selenium driver
     """
-    # Added exception handling
     def __init__(self, url, browser_name=""):
-        # decide which browser to open, can be extended
+        # Added exception handling
         try:
             if browser_name.lower() == "firefox":
                 self.driver = webdriver.Firefox(executable_path='C:/Users/user/Desktop/Automation/drivers/geckodriver')
