@@ -1,9 +1,10 @@
-from Automation.webelements.browser import Browser
-from Automation.webelements.UIElement import UIElement as Element
+from webelements.browser import Browser
+from webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
 import time
 
 URL = "http://techskillacademy.net/practice/"
+
 
 def test_simple_alert():
     browser = Browser(URL)
@@ -16,6 +17,7 @@ def test_simple_alert():
     time.sleep(2)
 
     browser.shutdown()
+
 
 def test_confirmation_alert():
     browser = Browser(URL)
