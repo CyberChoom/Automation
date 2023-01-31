@@ -13,7 +13,7 @@ class Browser:
             if browser_name.lower() == "firefox":
                 self.driver = webdriver.Firefox(executable_path='C:/Users/user/Desktop/Automation/drivers/geckodriver')
             else:
-                self.driver = webdriver.Chrome(executable_path='../drivers/chromedriver')
+                self.driver = webdriver.Chrome(executable_path='C:/Users/user/Desktop/Automation/drivers/chromedriver')
         except WebDriverException:
             print("The executable path to the driver is incorrect.")
             raise
