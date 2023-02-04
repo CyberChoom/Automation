@@ -1,7 +1,6 @@
 from webelements.browser import Browser
 from webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
-import time
 from webelements.alert import Alert
 from webelements.iframe import IFrame
 
