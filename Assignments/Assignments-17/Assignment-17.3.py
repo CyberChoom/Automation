@@ -1,6 +1,4 @@
 # Exercise #1
-
-
 my_list = []
 
 
@@ -27,8 +25,6 @@ input_and_result()
 
 
 # Exercise #2
-
-
 def print_sum_avg_arg(*args):
     summary = 0
     count = 0
@@ -44,8 +40,6 @@ print_sum_avg_arg(3, 4, 5)
 
 
 # Exercise #4
-
-
 current_year = 2022
 print("\nYou want to know how old you are but your math skills are not that great?\n")
 user_input = input("No worries, just enter the year of your birth and "

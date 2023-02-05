@@ -2,10 +2,13 @@ from webelements.actions import Actions
 from selenium.webdriver.common.by import By
 from webelements.browser import Browser
 from webelements.UIElement import UIElement as Element
-
+from utils.config_reader import ConfigReader
 
 URL = "https://cleveronly.com/practice"
-browser = Browser(URL, "firefox")
+#   2/4/2023 - V
+#   Using Config Reader
+configs = ConfigReader("config.json")
+browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
 actions = Actions(browser)
 driver = browser.get_driver()
 
@@ -29,14 +32,18 @@ open_website = Element(browser, By.XPATH, "//a")
 # Changing color
 actions.right_click(context_menu)
 actions.click(change_color)
+
 # Changing font
 actions.right_click(context_menu)
 actions.click(change_font)
+
 # Verifying that color and font attributes were changed successfully
 assert context_menu.get_attribute('style') == "background-color: rgb(204, 255, 245); font-weight: bold;"
+
 # Opening the link in the context menu
 actions.right_click(context_menu)
 open_website.click()
+
 # Sending ESC key to the page
 actions.right_click(context_menu)
 actions.send_keys('\ue00c')

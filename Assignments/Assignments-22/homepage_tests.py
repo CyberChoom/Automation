@@ -2,12 +2,18 @@ from pages.home_page import HomePage
 from webelements.browser import Browser
 from webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
+from utils.config_reader import ConfigReader
 
 URL = "https://cleveronly.com/brainbucket"
+#   2/4/2023 - V
+#   Using Config Reader
+configs = ConfigReader("config.json")
 
 
 def test_opening_pcs():
-    browser = Browser(URL, "firefox")
+    #   2/4/2023 - V
+    #   Using Config Reader
+    browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     home_page = HomePage(browser)
     home_page.show_pcs()
     section_title = Element(browser, By.XPATH, "//*[@id='content']/h2").get_text()
@@ -26,7 +32,9 @@ def test_opening_pcs():
 
 
 def test_opening_macs():
-    browser = Browser(URL, "firefox")
+    #   2/4/2023 - V
+    #   Using Config Reader
+    browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     home_page = HomePage(browser)
     home_page.show_mac_desktops()
     section_title = Element(browser, By.XPATH, "//*[@id='content']/h2").get_text()
@@ -45,7 +53,9 @@ def test_opening_macs():
 
 
 def test_opening_all_desktops():
-    browser = Browser(URL, "firefox")
+    #   2/4/2023 - V
+    #   Using Config Reader
+    browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     home_page = HomePage(browser)
     home_page.show_all_desktops()
     section_title = Element(browser, By.XPATH, "//*[@id='content']/h2").get_text()

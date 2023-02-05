@@ -5,6 +5,7 @@ from selenium.webdriver.support.color import Color
 # 6-11-2022    V
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from utils.config_reader import ConfigReader
 from selenium.webdriver.support.select import Select
 
 # 7-5-2022    V
@@ -14,9 +15,11 @@ from webelements.dropdown import Dropdown
 from webelements.checkbox import Checkbox
 from webelements.radiobutton import Radiobutton
 
-# 7-14-2022    V
-# Opening the browser and the website to be tested
-browser = Browser("https://cleveronly.com/brainbucket/index.php?route=account/login", "firefox")
+#   2/4/2023 - V
+#   Using Config Reader
+URL = "https://cleveronly.com/brainbucket/index.php?route=account/login"
+configs = ConfigReader("config.json")
+browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
 driver = browser.get_driver()
 driver.maximize_window()  # maximizing the browser window
 

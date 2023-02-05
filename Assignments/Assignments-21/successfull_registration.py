@@ -10,6 +10,8 @@ from pages.registration_page import RegistrationPage
 from utils.config_reader import ConfigReader
 
 URL = "https://cleveronly.com/brainbucket"
+#   2/4/2023 - V
+#   Using Config Reader
 configs = ConfigReader("config.json")
 
 
@@ -26,15 +28,15 @@ def test_registration_through_dropdown():
 
     registration_form.enter_first_name("Bob")
     registration_form.enter_last_name("Marcus")
-#   2/4/2023 - V
-#   Using config_reader
+    #   2/4/2023 - V
+    #   Using Config Reader
     registration_form.enter_email(configs.get_user1_email())
     registration_form.enter_telephone("1234567890")
     registration_form.enter_first_line_address("42 Simpson Avenue")
     registration_form.enter_city("Chicago")
     registration_form.select_state("Illinois")
-#   2/4/2023 - V
-#   Using config_reader
+    #   2/4/2023 - V
+    #   Using Config Reader
     registration_form.enter_password(configs.get_user1_password())
     registration_form.confirm_password(configs.get_user1_password())
 
@@ -62,15 +64,15 @@ def test_registration_from_right_menu():
     registration_form = RegistrationPage(browser)
     registration_form.enter_first_name("Bob")
     registration_form.enter_last_name("Marcus")
-#   2/4/2023 - V
-#   Using config_reader
+    #   2/4/2023 - V
+    #   Using Config Reader
     registration_form.enter_email(configs.get_user1_email())
     registration_form.enter_telephone("1234567890")
     registration_form.enter_first_line_address("42 Simpson Avenue")
     registration_form.enter_city("Chicago")
     registration_form.select_state("Illinois")
-#   2/4/2023 - V
-#   Using config_reader
+    #   2/4/2023 - V
+    #   Using Config Reader
     registration_form.enter_password(configs.get_user1_password())
     registration_form.confirm_password(configs.get_user1_password())
     registration_form.subscribe_to_newsletters()
