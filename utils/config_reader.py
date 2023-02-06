@@ -19,6 +19,8 @@ class ConfigReader:
     def get_wait_time(self):
         return self.reader.get_wait_time()
 
+    # 2/5/2023 - V
+    # Width, height
     def get_width(self):
         return self.reader.get_width()
 

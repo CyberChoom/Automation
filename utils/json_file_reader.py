@@ -18,6 +18,8 @@ class JsonFileReader:
             raise Exception("Wait_time option is not present in the config file")
         return int(self.data['wait_time'])
 
+    # 2/5/2023 - V
+    # Width, height
     def get_width(self):
         if 'width' not in self.data.keys():
             raise Exception("Width option is not present in the config file")

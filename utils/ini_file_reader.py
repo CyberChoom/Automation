@@ -21,6 +21,8 @@ class IniFileReader:
             raise Exception("Wait_time option is not present in the config file")
         return int(value)
 
+    # 2/5/2023 - V
+    # Width, height
     def get_width(self):
         value = self.data.get('window_size', 'width', fallback=None)
         if value is None:
