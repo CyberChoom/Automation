@@ -12,7 +12,7 @@ configs = ConfigReader("config.ini")
 
 
 def test_simple_alert():
-    browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
+    browser = Browser(URL, configs.get_browser(), configs.get_wait_time(), configs.get_width(), configs.get_height())
     alert_btn = Element(browser, By.XPATH, "//button[@onclick='openAlert()']")
     alert_btn.click()
 

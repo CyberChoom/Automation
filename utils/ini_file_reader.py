@@ -21,6 +21,18 @@ class IniFileReader:
             raise Exception("Wait_time option is not present in the config file")
         return int(value)
 
+    def get_width(self):
+        value = self.data.get('window_size', 'width', fallback=None)
+        if value is None:
+            raise Exception("Width option is not present in the config file")
+        return int(value)
+
+    def get_height(self):
+        value = self.data.get('window_size', 'height', fallback=None)
+        if value is None:
+            raise Exception("Height option is not present in the config file")
+        return int(value)
+
     def get_user1_email(self):
         value = self.data.get('user1', "email", fallback=None)
         if value is None:
