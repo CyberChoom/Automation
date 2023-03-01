@@ -5,13 +5,13 @@ from selenium.webdriver.common.by import By
 from webelements.dropdown import Dropdown
 from webelements.radiobutton import Radiobutton
 from webelements.checkbox import Checkbox
+import time
 
 
 class RegistrationPage:
     def __init__(self, browser):
         self.header = Header(browser)
         self.right_menu = RightMenu(browser)
-
         self.title = Element(browser, By.XPATH, "//*[@id='content']/h1")
         self.first_name_input = Element(browser, By.NAME, "firstname")
         self.last_name_input = Element(browser, By.NAME, "lastname")
@@ -30,6 +30,8 @@ class RegistrationPage:
         self.unsubscribe_btn = Radiobutton(browser, By.XPATH, "//input[@name='newsletter' and @value='0']")
         self.privacy_policy_checkbox = Checkbox(browser, By.NAME, "agree")
         self.continue_btn = Element(browser, By.XPATH, "//input[@value='Continue']")
+        self.privacy_policy_warning = Element(browser, By.CLASS_NAME, "alert-danger")
+        self.successful_registration_alert = Element(browser,  By.XPATH, "//*[@id='content']/h1")
 
     def get_form_title(self):
         return self.title.get_text(wait=True)
@@ -85,17 +87,9 @@ class RegistrationPage:
     def submit_form(self):
         self.continue_btn.submit()
 
+    def verify_privacy_policy_warning(self):
+        assert self.privacy_policy_warning.get_text() == "Warning: You must agree to the Privacy Policy!"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def verify_successful_registration(self):
+        time.sleep(2)
+        assert self.successful_registration_alert.get_text() == "Your Account Has Been Created!"
