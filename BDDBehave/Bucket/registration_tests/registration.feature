@@ -4,7 +4,7 @@ Feature: Registration functionality
   Background:
     Given user launched the registration page
 
-  @positive @wip
+  @positive
   Scenario Outline: Account Registration
     When user enters his "<first_name>" in the First Name field
     And "<last_name>" in the Last Name field
@@ -22,10 +22,10 @@ Feature: Registration functionality
 
   Examples:
       |first_name|last_name|email       |phone  |password  |address |city       |country      |state  |
-      |Bob       |Smith    |czr@test.com|1234561|testp4sw  |12 Red  |Bobtown    |United States|Georgia|
-      |Douglas   |Wilson   |dz@gmail.com|09876  |lk4dj7sf41|45 Colt |Chersonesos|Ukraine      |Crimea |
+      |Bob       |Smith    |mnb@test.com|1234561|testp4sw  |12 Red  |Bobtown    |United States|Georgia|
+      |Douglas   |Wilson   |po@gmail.com|09876  |lk4dj7sf41|45 Colt |Chersonesos|Ukraine      |Crimea |
 
-  @negative
+  @negative @wip
   Scenario Outline: User will not be able to register if the 'Privacy Policy' checkbox is not ticked
     When user enters his "<first_name>" in the First Name field
     And "<last_name>" in the Last Name field
@@ -41,5 +41,5 @@ Feature: Registration functionality
     Then user account is not created, message stating "Warning: You must agree to the Privacy Policy!" is shown
 
   Examples:
-      |first_name|last_name|email        |phone|password  |address   |city    |country      |state   |
-      |John      |Markus   |mtcv@test.com|1234522|testp4sw|11 Good st|Racetown|United States|New York|
+      |first_name|last_name|email        |phone  |password  |address   |city    |country      |state   |
+      |John      |Markus   |mtcv@test.com|1234522|testp4sw  |11 Good st|Racetown|United States|New York|
