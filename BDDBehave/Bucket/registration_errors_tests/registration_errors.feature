@@ -1,5 +1,6 @@
 Feature: Error messages during registration process
 
+
   Scenario Outline: enter in "<field>" "<type>" value
     Given user is on the registration page
     When user types "<value>" in "<field>"
