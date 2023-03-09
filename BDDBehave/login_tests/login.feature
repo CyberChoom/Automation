@@ -2,7 +2,7 @@ Feature: Login functionality
 
 
   Background:
-    Given user launch login page
+    Given user launched the login page
 
   Scenario: A user can login using correct email and password
     Given user is not logged in

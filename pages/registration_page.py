@@ -32,6 +32,14 @@ class RegistrationPage:
         self.continue_btn = Element(browser, By.XPATH, "//input[@value='Continue']")
         self.privacy_policy_warning = Element(browser, By.CLASS_NAME, "alert-danger")
         self.successful_registration_alert = Element(browser,  By.XPATH, "//*[@id='content']/h1")
+        # error messages under inputs
+        self.first_name_error = Element(browser, By.XPATH, "//fieldset[@id='account']/div[2]/div/div")
+        self.last_name_error = Element(browser, By.XPATH, "//fieldset[@id='account']/div[3]/div/div")
+        self.phonenumber_error = Element(browser, By.XPATH, "//fieldset[@id='account']/div[5]/div/div")
+        self.password_error = Element(browser, By.XPATH, "//fieldset[3]/div/div/div")
+        self.email_error = Element(browser, By.XPATH, "//fieldset[@id='account']/div[4]/div/div")
+        self.address_1_error = Element(browser, By.XPATH, "//fieldset[2][@id='address']/div[2]/div/div")
+        self.city_error = Element(browser, By.XPATH, "//fieldset[2][@id='address']/div[4]/div/div")
 
     def get_form_title(self):
         return self.title.get_text(wait=True)
@@ -93,3 +101,24 @@ class RegistrationPage:
     def verify_successful_registration(self):
         time.sleep(2)
         assert self.successful_registration_alert.get_text() == "Your Account Has Been Created!"
+
+    def get_firstname_error(self):
+        return self.first_name_error.get_text()
+
+    def get_lastname_error(self):
+        return self.last_name_error.get_text()
+
+    def get_phonenumber_error(self):
+        return self.phonenumber_error.get_text()
+
+    def get_password_error(self):
+        return self.password_error.get_text()
+
+    def get_email_error(self):
+        return self.email_error.get_text()
+
+    def get_address_1_error(self):
+        return self.address_1_error.get_text()
+
+    def get_city_error(self):
+        return self.city_error.get_text()

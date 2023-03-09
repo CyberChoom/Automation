@@ -10,7 +10,7 @@ URL = "https://cleveronly.com/brainbucket/index.php?route=account/login"
 configs = ConfigReader("Automation/BDDBehave/login_tests/steps/config.ini")
 
 
-@given("user launch login page")
+@given("user launched the login page")
 def launch_login_page(context):
     browser = Browser(URL, configs.get_browser(), configs.get_wait_time())
     context.browser = browser
