@@ -32,3 +32,18 @@ class JsonFileReader:
         if 'url' not in self.data.keys():
             raise Exception("URL option is not present in the config file")
         return self.data['url']
+
+    def get_remote_username(self):
+        if 'remote_username' not in self.data.keys():
+            raise Exception("Remote username is not present in the config file")
+        return self.data['remote_username']
+
+    def get_remote_access_key(self):
+        if 'remote_access_key' not in self.data.keys():
+            raise Exception("Remote access key is not present in the config file")
+        return self.data['remote_access_key']
+
+    def get_desired_cap(self):
+        if 'desired_capabilities' not in self.data.keys():
+            raise Exception("Desired cap is not present in the config file")
+        return self.data['desired_capabilities']

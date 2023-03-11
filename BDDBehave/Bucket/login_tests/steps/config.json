@@ -1,0 +1,18 @@
+{
+  "browser": "remote",
+  "wait_time": 10,
+  "url": "https://cleveronly.com/brainbucket/index.php?route=account/login",
+  "remote_username": "trialtester_CeBjai",
+  "remote_access_key": "ujmiGphDZxYoWxpxfygL",
+  "desired_capabilities": {
+    "bstack:options": {
+      "os": "Windows",
+      "osVersion": "10",
+      "browserName": "Chrome",
+      "browserVersion": "latest",
+      "projectName": "User can't login without entering password/email",
+      "buildName": "Login_tests_1.0"
+    }
+  }
+}
+

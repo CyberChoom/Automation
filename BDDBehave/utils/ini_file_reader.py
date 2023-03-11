@@ -16,7 +16,7 @@ class IniFileReader:
         return value
 
     def get_wait_time(self):
-        value = self.data.get('environment', 'wait', fallback=None)
+        value = self.data.get('environment', 'wait_time', fallback=None)
         if value is None:
             raise Exception("Wait_time option is not present in the config file")
         return int(value)

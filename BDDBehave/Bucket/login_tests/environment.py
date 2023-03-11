@@ -1,15 +1,16 @@
-from BDDBehave.utils.config_reader import ConfigReader
+from BDDBehave.utils.remote_config_reader import RemoteConfigReader
 from BDDBehave.webelements.browser import Browser
 
 
 def before_all(context):
-    configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Bucket/login_tests/steps/config.ini")
+    configs = RemoteConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Bucket/login_tests/steps/config.json")
     context.configs = configs
 
 
 def before_scenario(context, scenario):
     configs = context.configs
-    browser = Browser(configs.get_url(), configs.get_browser(), configs.get_wait_time())
+    browser = Browser(configs.get_url(), configs.get_browser(), configs.get_wait_time(), configs.get_remote_username(),
+                      configs.get_remote_access_key(), configs.get_desired_cap())
     context.browser = browser
 
 
