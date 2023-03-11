@@ -1,7 +1,9 @@
 {
   "browser": "remote",
   "wait_time": 10,
-  "url": "https://cleveronly.com/brainbucket/index.php?route=account/login",
+  "url": "http://18.212.223.46:3000",
+  "email": "testers@testo.com",
+  "password": "qwertyu123",
   "remote_username": "trialtester_CeBjai",
   "remote_access_key": "ujmiGphDZxYoWxpxfygL",
   "desired_capabilities": {
@@ -10,8 +12,8 @@
       "osVersion": "10",
       "browserName": "Chrome",
       "browserVersion": "latest",
-      "projectName": "User can't login without entering password/email",
-      "buildName": "Login_tests_1.0"
+      "projectName": "User can add a Music Product with filling in only required fields",
+      "buildName": "Cargo_bay_tests_1.0"
     }
   }
 }

@@ -1,23 +1,23 @@
 from behave import given, when, then
-from BDDBehave.utils.config_reader import ConfigReader
+from BDDBehave.utils.remote_config_reader import RemoteConfigReader
 from BDDBehave.Kozmonot.pages.login_page import LoginPage
 from BDDBehave.Kozmonot.pages.add_music_page import MusicPage
 
 
-configs = ConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/cargo_bay_tests/steps/config.ini")
+configs = RemoteConfigReader("C:/Users/user/Desktop/Automation/BDDBehave/Kozmonot/cargo_bay_tests/steps/config.json")
 
 
 """ 
     Given user is logged in
     And user launched the 'Add Music Product' page
     When user enters <artist_name>
-    * <album_name>
-    * <format>
-    * <quantity>
-    * <media_condition>
-    * <sleeve_condition>
-    * <opening_price>
-    * <asking_price>
+    And <album_name>
+    And <format>
+    And <quantity>
+    And <media_condition>
+    And <sleeve_condition>
+    And <opening_price>
+    And <asking_price>
     And clicks the 'Add Product' button
     Then the Music Product is added 
 """
