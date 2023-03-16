@@ -267,7 +267,7 @@ def archive_list(board_name, list_name, **kwargs):
     Archives the list
     :param board_name: name of the board the list is located in
     :param list_name: name of the list to be archived
-    :param kwargs: list's parameters to confirm archival. (value - Set to true to close (archive) the list
+    :param kwargs: parameters to confirm archiving of the list. (value - Set to true to close (archive) the list
     :return: None
     """
     list_id = get_list_id(board_name, list_name)
