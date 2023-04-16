@@ -54,4 +54,5 @@ else:
     driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": '
                           '{"status":"failed", "reason": "Verification failed"}}')
 
+
 browser.shutdown()
