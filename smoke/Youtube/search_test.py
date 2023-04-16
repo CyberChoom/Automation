@@ -9,6 +9,7 @@ configs = RemoteConfigReader("config.json")
 browser = Browser(configs.get_url(), configs.get_browser(), configs.get_wait_time(), configs.get_remote_username(),
                   configs.get_remote_access_key(), configs.get_desired_cap())
 driver = browser.get_driver()
+driver.maximize_window()
 
 # Inputting search request and launching search
 search_field = Element(browser, By.XPATH, "//input[@id='search']")
@@ -44,5 +45,13 @@ time.sleep(5)
 # Verifying the video continues to play
 assert "playing-mode" in Element(browser, By.XPATH, "//div[@id='movie_player']").get_attribute("class")
 print("Success")
+
+# Marking a session as Passed or Failed via the REST API
+if "playing-mode" in Element(browser, By.XPATH, "//div[@id='movie_player']").get_attribute("class"):
+    driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": '
+                          '{"status":"passed", "reason": "Verification passed"}}')
+else:
+    driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": '
+                          '{"status":"failed", "reason": "Verification failed"}}')
 
 browser.shutdown()
