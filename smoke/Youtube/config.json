@@ -1,0 +1,19 @@
+{
+  "browser": "remote",
+  "wait_time": 10,
+  "url": "https://youtube.com",
+  "search_request": "breakfast burrito",
+  "video_name": "Ultimate Breakfast Burrito",
+  "remote_username": "trialtester_CeBjai",
+  "remote_access_key": "ujmiGphDZxYoWxpxfygL",
+  "desired_capabilities": {
+    "bstack:options": {
+      "os": "Windows",
+      "osVersion": "10",
+      "browserName": "Chrome",
+      "browserVersion": "latest",
+      "projectName": "Search Testing",
+      "buildName": "Search_tests_1.0"
+    }
+  }
+}

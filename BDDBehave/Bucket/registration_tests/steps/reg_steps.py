@@ -10,7 +10,7 @@ def launch_registration_page(context):
     registration_page = RegistrationPage(context.browser)
     context.registration_page = registration_page
 
-#
+
 @when('user enters his "{first_name}" in the First Name field')
 def enter_first_name(context, first_name):
     registration_page = context.registration_page
