@@ -17,7 +17,7 @@ search_field.enter_text(configs.get_search_request())
 search_field.submit()
 
 # Opening the chosen video
-chosen_video = Element(browser, By.XPATH, "//yt-formatted-string[contains(.,'Ultimate Breakfast Burrito')]")
+chosen_video = Element(browser, By.XPATH, f"//yt-formatted-string[contains(.,'{configs.get_video_name()}')]")
 chosen_video.click()
 
 # Confirming the video is playing
@@ -27,8 +27,7 @@ assert "playing-mode" in video_player
 
 # Waiting for the ads section to finish
 while "ad-interrupting" in Element(browser, By.XPATH, "//div[@id='movie_player']").get_attribute("class"):
-    if True:
-        time.sleep(5)
+    time.sleep(5)
 else:
     print("Ads finished")
 
